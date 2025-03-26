@@ -1,0 +1,29 @@
+metadata_file: "data/metadata.csv"
+result_dir: "output/v1_default"
+target_recall: 0.9
+metrics:
+  - "F1"
+  - "Acc"
+  - "P@R=0.9"
+  - "T@R=0.9"
+  - "Acc@R=0.9"
+  - "F1@R=0.9"
+  - "AUC"
+modalities:
+  - "gaze"
+  - "rgb"
+  - "imu"
+  - "gaze+imu"
+  - "imu+rgb"
+  - "gaze+rgb"
+#  - "gaze+imu+rgb"
+#filters:
+#  ContainsNonText:
+#    - "images"
+#  ShortTextOrPara:
+#    - "paragraphs"
+#  Medium:
+#    - "digital"
+#  Platform:
+#    - "laptop"
+
