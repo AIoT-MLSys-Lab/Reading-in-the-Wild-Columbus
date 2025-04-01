@@ -12,7 +12,7 @@ from projectaria_tools.core.stream_id import StreamId
 from torch.utils.data import Dataset
 
 # Import your own modules and constants
-from utils import project_gaze_vrs, create_sampled_array
+from .utils import project_gaze_vrs, create_sampled_array
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')

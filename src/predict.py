@@ -8,7 +8,7 @@ from hydra.utils import get_original_cwd
 from omegaconf import DictConfig, OmegaConf, open_dict
 
 # Import the inference function from your single-file prediction module.
-from predict_single_file import inference
+from .predict_single_file import inference
 
 # Set the multiprocessing start method early (use "spawn" to avoid fork issues).
 try:
@@ -97,7 +97,7 @@ def get_file_list(cfg: DictConfig, orig_cwd: Path):
         return [file_path] if file_path.exists() else []
     else:
         root_dir = orig_cwd / cfg.root_dir
-        return list(root_dir.glob("*.vrs"))[:2]
+        return list(root_dir.glob("*.vrs"))
 
 
 def process_all(cfg: DictConfig, orig_cwd: Path):
@@ -145,3 +145,4 @@ def main(cfg: DictConfig):
 
 if __name__ == "__main__":
     main()
+

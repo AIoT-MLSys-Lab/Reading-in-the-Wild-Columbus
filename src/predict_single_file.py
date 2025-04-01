@@ -33,7 +33,7 @@ def inference(cfg: DictConfig):
 
     # Load TorchScript model from the ../models directory.
     original_cwd = Path(cfg.original_cwd)
-    model_dir = original_cwd / Path("../models")
+    model_dir = original_cwd / Path("models")
     model_path = model_dir / f"{model_name}.pt"
     if not model_path.exists():
         raise FileNotFoundError(f"Model file not found: {model_path}")
