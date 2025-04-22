@@ -24,7 +24,7 @@ conducted in 3 different mediums as well covering digital, print and objects.
 <img src="media/scenarios.png" alt="comparison" width="70%">
 </p>
 
-## Key Advantages over Existing Works
+## Comparison to Existing Datasets
 The primary advantage of `RITW` is its curation of natural reading data collected using the Aria Smart glasses. The 
 reading data containing gaze at 60Hz which is significantly higher than other egocentric datasets and has 100 hrs of 
 real data which is significantly higher than existing reading recognition datasets.
