@@ -1,7 +1,8 @@
 # Reading in the Wild Dataset - Columbus Subset
 
 # Overview
-To enable egocentric contextual AI in smart glasses, it's essential to record user interactions—including during reading. In this paper, we introduce **reading recognition**, a task to determine **when** a user is reading. We present the first large-scale multimodal **Reading in the Wild** dataset, featuring 100 hours of diverse reading and non-reading videos. Our approach leverages three modalities—egocentric RGB, eye gaze, and head pose—using a flexible transformer model that can combine these cues. We demonstrate that these modalities are both relevant and complementary, and we explore efficient encoding strategies. Moreover, our dataset supports classifying different types of reading, extending previous constrained studies to more realistic scenarios.
+To enable egocentric contextual AI in smart glasses, it's essential to record user interactions—including during reading. With this dataset, we introduce **reading recognition**, a task to determine **when** a user is reading. We present the first large-scale multimodal **Reading in the Wild** dataset, featuring 100 hours of diverse reading and non-reading videos. Our approach leverages three modalities—egocentric RGB, eye gaze, and head pose—using a flexible transformer model that can combine these cues. We demonstrate that these modalities are both relevant and complementary, and we explore efficient encoding strategies. Moreover, our dataset supports classifying different types of reading, extending previous constrained studies to more realistic scenarios. 
+The dataset contains two subsets, Seattle and Columbus. This repository is the underlying codebase for inference and evaluation of the Columbus subset. The Seattle Subset is maintained separately [here](https://github.com/facebookresearch/reading_in_the_wild).
 
 <p align="center">
 <img src="media/ritw_columbus_teaser.gif" alt="comparison" width="70%">
