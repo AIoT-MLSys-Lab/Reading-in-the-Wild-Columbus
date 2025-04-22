@@ -23,12 +23,12 @@ As summarized in the following chart, the Columbus subset contains data collecte
 </p>
 
 ## Comparison to Existing Datasets
-The primary advantage of `RITW` is its curation of natural reading data collected using the Aria Smart glasses. The 
-reading data containing gaze at 60Hz which is significantly higher than other egocentric datasets and has 100 hrs of 
-real data which is significantly higher than existing reading recognition datasets.
+Compared to existing gocentric video datasets as well as reading datasets, our dataset is the first reading dataset that contains high-frequency eye-gaze, diverse and realistic egocentric videos, and hard negative (HN) samples. 
 <p align="center">
 <img src="media/table2.png" alt="comparison" width="60%">
 </p>
+
+
 
 ## Models
 A base model (`v1_default`) trained on the training data of the Seattle subset can be 
