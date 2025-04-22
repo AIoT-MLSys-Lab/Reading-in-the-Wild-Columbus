@@ -33,8 +33,8 @@ real data which is significantly higher than existing reading recognition datase
 </p>
 
 ## Base Model
-A simple baseline model (`v1_default`) trained on the training data of the `Seattle` subset for benchmarking can be 
-found  [here](https://github.com/facebookresearch/reading_in_the_wild). 
+A base model (`v1_default`) trained on the training data of the Seattle subset can be 
+found [here](https://github.com/facebookresearch/reading_in_the_wild). 
 The model uses a 64x64 RGB crop from the RGB camera of the glasses centered on the wearer's eye gaze, 3D gaze 
 velocities sampled at 60Hz spanning 2s from the eye tracking cameras and 3D head orientation and velocity sampled at 
 60Hz spanning 2s from the IMU sensors. The model can selectively work with any combination of these modalities. It 
@@ -44,7 +44,7 @@ outputs to output binary predictions.
 <img src="media/arch.png" alt="comparison" width="60%">
 </p>
 
-Additionally, the following alternate variants are available [here](https://github.com/facebookresearch/reading_in_the_wild):
+Besides the base model, the following alternate variants are available [here](https://github.com/facebookresearch/reading_in_the_wild):
 + `v1_1s`: uses a shorter 1s span for Gaze data
 + `v1_15Hz`: uses a lower 15Hz sampling frequency for Gaze data
 + `v1_large`: uses a larger RGB crop size of 128x128
