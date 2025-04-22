@@ -37,7 +37,7 @@ A base model (`v1_default`) trained on the training data of the Seattle subset c
 found [here](https://github.com/facebookresearch/reading_in_the_wild). 
 The model uses a 64x64 RGB crop from the RGB camera of the glasses centered on the wearer's eye gaze, 3D gaze 
 velocities sampled at 60Hz spanning 2s from the eye tracking cameras and 3D head orientation and velocity sampled at 
-60Hz spanning 2s from the IMU sensors. The model can selectively work with any combination of these modalities. It 
+60Hz spanning 2s from the IMU sensors. The model can selectively work with any combination of these three modalities. It 
 uses a 3-layer convolutional encoder model for each modality and a 1-layer transformer head to fuse the encoder 
 outputs to output binary predictions.
 <p align="center">
