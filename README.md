@@ -32,7 +32,7 @@ real data which is significantly higher than existing reading recognition datase
 <img src="media/table2.png" alt="comparison" width="60%">
 </p>
 
-## Base Model
+## Models
 A base model (`v1_default`) trained on the training data of the Seattle subset can be 
 found [here](https://github.com/facebookresearch/reading_in_the_wild). 
 The model uses a 64x64 RGB crop from the RGB camera of the glasses centered on the wearer's eye gaze, 3D gaze 
