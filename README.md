@@ -16,7 +16,7 @@ The Columbus subset contains around 20 hours of data from 31 subjects containing
 <img src="media/table1.png" alt="comparison" width="100%">
 </p>
 
-As summarized in the following chart, the Columbus subset contains data collected from reading across three different medium types including digital, print, and objects. It also contains data collected from reading across three different types of contents, including paragraphs which have long continuous text, short texts such as posters, and non-textual content such as illustrative diagrams and images. 
+As summarized in the following chart, the Columbus subset contains data collected from reading across three different medium types including digital, print, and objects. It also contains data collected from reading across three different types of contents, including paragraphs which have long continuous text, short texts such as posters and nutrition table, and non-textual content such as illustrative diagrams. 
 
 <p align="center">
 <img src="media/scenarios.png" alt="comparison" width="70%">
