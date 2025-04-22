@@ -14,8 +14,7 @@ in indoor scenarios. It is collected with the objective for zero-shot experiment
 <img src="media/table1.png" alt="comparison" width="100%">
 </p>
 
-## Scenarios
-The data covers a range of scenarios from paragraphs which have long continuous text to very short texts containing 
+The Columbus subset covers a range of scenarios from paragraphs which have long continuous text to very short texts containing 
 few words like on signage and posters. The reading materials also contain non-textual content which can be read like 
 illustrative diagrams and charts as well as non-readable material like video and images. The experiments are 
 conducted in 3 different mediums as well covering digital, print and objects.
