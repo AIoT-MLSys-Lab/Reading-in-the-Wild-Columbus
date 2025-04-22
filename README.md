@@ -5,11 +5,12 @@
 
 The dataset contains two subsets -- Seattle subset and Columbus subset. This repository is for the Columbus subset. The Seattle subset is maintained separately [here](https://github.com/facebookresearch/reading_in_the_wild).
 
+## Overview of Columbus Subset
+
 <p align="center">
 <img src="media/ritw_columbus_teaser.gif" alt="comparison" width="70%">
 </p>
 
-## Overview of Columbus Subset
 The Columbus subset contains around 20 hours of data from 31 subjects containing reading and non-reading activities 
 in indoor scenarios. It is collected with the objective for zero-shot experiments. It contains examples of hard negatives (where text is present but is not being read), searching/browsing (which gives confusing gaze patterns), and reading non-English texts (where reading direction differs).
 <p align="center">
