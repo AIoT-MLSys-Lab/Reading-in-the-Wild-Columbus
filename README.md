@@ -9,7 +9,7 @@ To enable egocentric contextual AI in smart glasses, it's essential to record us
 
 ## Columbus Subset Statistics
 The Columbus subset contains around 20 hours of data from 31 subjects containing reading and non-reading activities 
-in indoor scenarios. It features 4 different languages and particularly focuses on evaluating edge cases.
+in indoor scenarios. It is collected with the objective for zero-shot experiments. It contains examples of hard negatives (where text is present but is not being read), searching/browsing (which gives confusing gaze patterns), and reading non- English texts (where reading direction differs).
 <p align="center">
 <img src="media/table1.png" alt="comparison" width="100%">
 </p>
