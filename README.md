@@ -28,21 +28,17 @@ Compared to existing gocentric video datasets as well as reading datasets, our d
 <img src="media/table2.png" alt="comparison" width="60%">
 </p>
 
-
-
 ## Models
 A base model (`v1_default`) trained on the training data of the Seattle subset can be 
 found [here](https://github.com/facebookresearch/reading_in_the_wild). 
 The model uses a 64x64 RGB crop from the RGB camera of the glasses centered on the wearer's eye gaze, 3D gaze 
 velocities sampled at 60Hz spanning 2s from the eye tracking cameras and 3D head orientation and velocity sampled at 
-60Hz spanning 2s from the IMU sensors. The model can selectively work with any combination of these three modalities. It 
-uses a 3-layer convolutional encoder model for each modality and a 1-layer transformer head to fuse the encoder 
-outputs to output binary predictions.
+60Hz spanning 2s from the IMU sensors. The model can selectively work with any combination of these three modalities. 
 <p align="center">
 <img src="media/arch.png" alt="comparison" width="60%">
 </p>
 
-Besides the base model, the following alternate variants are available [here](https://github.com/facebookresearch/reading_in_the_wild):
+Besides the base model, the following variants are also provided [here](https://github.com/facebookresearch/reading_in_the_wild):
 + `v1_1s`: uses a shorter 1s span for Gaze data
 + `v1_15Hz`: uses a lower 15Hz sampling frequency for Gaze data
 + `v1_large`: uses a larger RGB crop size of 128x128
@@ -50,7 +46,10 @@ Besides the base model, the following alternate variants are available [here](ht
 + `v1_mode`: outputs categorical predictions for reading modes(`no-read`, 'walk`, 'out-loud`, `engaged`, `scan`, 
 `write/type` and `skim`).
 
+For details of the base model and its variants, please refer to [here](https://github.com/facebookresearch/reading_in_the_wild). 
+
 Download and put the models in ```models/``` folder.
+
 # Getting Started
 ## Setup
 Use conda to create a new environment and install the required packages. The codebase has been tested with Python 3.12 and PyTorch 2.4.
