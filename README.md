@@ -7,7 +7,7 @@
 <img src="media/ritw_columbus_teaser.gif" alt="comparison" width="70%">
 </p>
 
-## Columbus Subset Statistics
+## Overview of Columbus Subset
 The Columbus subset contains around 20 hours of data from 31 subjects containing reading and non-reading activities 
 in indoor scenarios. It is collected with the objective for zero-shot experiments. It contains examples of hard negatives (where text is present but is not being read), searching/browsing (which gives confusing gaze patterns), and reading non- English texts (where reading direction differs).
 <p align="center">
