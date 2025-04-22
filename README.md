@@ -48,8 +48,6 @@ Besides the base model, the following variants are also provided [here](https://
 
 For details of the base model and its variants, please refer to [here](https://github.com/facebookresearch/reading_in_the_wild). 
 
-Download and put the models in ```models/``` folder.
-
 # Getting Started
 ## Setup
 Use conda to create a new environment and install the required packages. The codebase has been tested with Python 3.12 and PyTorch 2.4.
@@ -63,6 +61,9 @@ conda activate ritw-osu
 
 ## Download
 ```TODO```
+
+Download the models from [here](https://github.com/facebookresearch/reading_in_the_wild) and put them inside the ```models/``` folder.
+
 
 ## Prediction
 
