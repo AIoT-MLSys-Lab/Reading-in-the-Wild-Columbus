@@ -64,23 +64,14 @@ conda activate ritw-osu
 
 Download the models from [here](https://github.com/facebookresearch/reading_in_the_wild) and put them inside the ```models/``` folder.
 
-
-## Prediction
-
-### Modes
-The codebase provides scripts for running predictions on the **Reading in The Wild** dataset using a compatible model. Refer to the Models section for available models and model architecture. The prediction pipeline supports two modes:
-
-- **Single File Prediction:** Run inference on an individual VRS file to test and visualize the model’s performance on a specific sample.
-- **Folder Prediction:** Evaluate the model on a folder containing multiple VRS files. This mode leverages parallel processing to efficiently run inference on all files and saves the results to CSV.
-
-### Inference
+## Inference
 The inference pipeline is configurable via a config file. An example config is shown below: 
 ```yaml
 # Example: ../config/config.yaml
 # conf/config.yaml
 start_time: 0.0
 snippet_gap: 0.01667  # roughly 1/60 seconds
-mode: "folder"
+mode: "folder" # folder/single. If mode is single, please provide input_filename in config. If mode is folder, inference will be done on all files in root dir.
 modalities:
   - "gaze"
   - "imu"
