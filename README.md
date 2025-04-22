@@ -70,7 +70,7 @@ conda activate ritw-osu
 ## Prediction
 
 ### Modes
-The codebase provides scripts for running predictions on the **Reading in The Wild** dataset using a compatible model. The prediction pipeline supports two modes:
+The codebase provides scripts for running predictions on the **Reading in The Wild** dataset using a compatible model. Refer to the Models section for available models and model architecture. The prediction pipeline supports two modes:
 
 - **Single File Prediction:** Run inference on an individual VRS file to test and visualize the model’s performance on a specific sample.
 - **Folder Prediction:** Evaluate the model on a folder containing multiple VRS files. This mode leverages parallel processing to efficiently run inference on all files and saves the results to CSV.
