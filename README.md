@@ -96,7 +96,7 @@ python -m ritw.predict --config-name config.yaml
 The command runs each file and model combinations in separate processes. The output is saved in the form of `csv` files in directory `<output_save_path>/<model_name>`. 
 
 ## Evaluation
-The evaluation module allows you to assess the performance of the reading recognition system using prediction results stored from the inference step. This module leverages metadata from the recordings, applies configurable filters to focus on a specific subset of the dataset, computes various classification metrics for each modality, and outputs a summary table in Markdown format.
+The evaluation module allows you to benchmark the performance of the models based on the inference results. This module leverages metadata from the recordings, applies configurable filters to focus on a specific subset of the dataset, computes various performance metrics for each modality, and outputs a summary table in Markdown format.
 
 Below is an example configuration file (`conf/config.yaml`) for the evaluation module:
 
