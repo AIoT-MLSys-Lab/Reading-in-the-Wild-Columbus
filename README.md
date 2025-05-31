@@ -31,7 +31,7 @@ Compared to existing gocentric video datasets as well as reading datasets, our d
 ## Models
 A base model (`v1_default`) trained on the training data of the Seattle subset can be 
 found [here](https://github.com/facebookresearch/reading_in_the_wild). 
-The model uses a 64x64 RGB crop from the RGB camera of the glasses centered on the wearer's eye gaze, 3D gaze 
+The model uses a 5&deg; FoV RGB crop (64x64) from the RGB camera of the glasses centered on the wearer's eye gaze, 3D gaze 
 velocities sampled at 60Hz spanning 2s from the eye tracking cameras and 3D head orientation and velocity sampled at 
 60Hz spanning 2s from the IMU sensors. The model can selectively work with any combination of these three modalities. 
 <p align="center">
