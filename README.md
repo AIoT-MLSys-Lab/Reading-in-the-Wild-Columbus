@@ -60,8 +60,11 @@ conda activate ritw-osu
 ```
 
 ## Download
-```TODO```
 
+### Dataset
+*Dataset will be available soon.*
+
+### Models
 Download the models from [here](https://github.com/facebookresearch/reading_in_the_wild) and put them inside the ```models/``` folder.
 
 ## Inference
