@@ -55,7 +55,7 @@ def process_data(file: Path, base_cfg: DictConfig, model: str, orig_cwd: Path):
                 continue
             logging.info("Completed modality %s for file %s with model %s", modality, file.stem, model)
             merged_results[modality] = (timestamps, predictions)
-        except Exception as e:
+        except ValueError as e:
             logging.error("Error processing modality %s for file %s, model %s: %s", modality, file, model, e)
     # Check that we got results for all modalities (or at least some)
     if not merged_results:
@@ -90,7 +90,10 @@ def get_file_model_tasks(cfg: DictConfig, orig_cwd: Path):
         files = [file_path] if file_path.exists() else []
     else:
         root_dir = orig_cwd / cfg.root_dir
-        files = list(root_dir.glob("*.vrs"))
+        if "file_type" in cfg and cfg.file_type == "mp4":
+            files = list(root_dir.glob("*.mp4"))
+        else:
+            files = list(root_dir.glob("*.vrs"))
     tasks = []
     for file in files:
         for model in cfg.model_name:

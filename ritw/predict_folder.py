@@ -5,6 +5,7 @@ from pathlib import Path
 from multiprocessing import Pool
 
 import hydra
+from IPython.terminal.pt_inputhooks.wx import inputhook
 from hydra.utils import get_original_cwd
 from omegaconf import DictConfig, OmegaConf, open_dict
 
@@ -41,7 +42,7 @@ def process_file(file: Path, base_cfg: DictConfig):
         df.to_csv(str(output_file), index=False)
         logging.info("Predictions for %s saved to %s", vid_uid, output_file)
         return vid_uid, True
-    except Exception as e:
+    except ValueError as e:
         logging.error("Error processing file %s: %s", file, e)
         return str(file), False
 
@@ -52,21 +53,24 @@ def process_all_files(cfg: DictConfig):
     """
     original_cwd = Path(get_original_cwd())
     root_dir = original_cwd / cfg.root_dir
-    vrs_files = list(root_dir.glob("*.vrs"))
-    if not vrs_files:
+    if "file_type" in cfg and cfg.file_type == "mp4":
+        input_files = list(root_dir.glob("*.mp4"))
+    else:
+        input_files = list(root_dir.glob("*.vrs"))
+    if not input_files:
         logging.error("No VRS files found in %s", root_dir)
         return
 
-    logging.info("Found %d VRS files in %s", len(vrs_files), root_dir)
+    logging.info("Found %d VRS files in %s", len(input_files), root_dir)
 
     # Prepare arguments for multiprocessing.
-    args = [(file, cfg) for file in vrs_files]
+    args = [(file, cfg) for file in input_files]
 
     with Pool(processes=cfg.num_workers) as pool:
         results = pool.starmap(process_file, args)
 
     processed = sum(1 for _, success in results if success)
-    logging.info("Processing complete: %d/%d files successfully processed.", processed, len(vrs_files))
+    logging.info("Processing complete: %d/%d files successfully processed.", processed, len(input_files))
 
 
 @hydra.main(config_path="../config", config_name="config")

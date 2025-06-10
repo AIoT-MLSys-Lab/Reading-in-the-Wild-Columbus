@@ -2,6 +2,7 @@
 
 import os
 import argparse
+import pickle
 from pathlib import Path
 
 import torch
@@ -9,6 +10,8 @@ import pandas as pd
 import numpy as np
 from omegaconf import DictConfig
 from projectaria_tools.core import data_provider
+from projectaria_tools.core.calibration import CameraCalibration
+from projectaria_tools.core.sophus import SE3
 from torch.utils.data import DataLoader
 
 
@@ -149,6 +152,57 @@ def get_projections_et(
         directions.append(direction.flatten())
 
     return projections, directions
+
+
+def project_gaze_mp4(gaze_path, cam_calib, cpf_to_rgb_T):
+    """
+    Input:
+    gaze_path: path to either general or personalized eye gaze .csv file
+    vrs_path: path to .vrs file
+
+    Output:
+    A dataframe with
+    cols = ["tracking_timestamp_us", "projected_point_2d_x", "projected_point_2d_y", "transformed_gaze_x", "transformed_gaze_y", "transformed_gaze_z", "depth_m"]
+    """
+    gaze = pd.read_csv(gaze_path, engine='python')
+    cols = ["left_yaw_rads_cpf", "right_yaw_rads_cpf", "pitch_rads_cpf"]
+    _, third_eye = compute_depth_and3rdeye(gaze.loc[:, cols].to_numpy())
+    gaze["yaw_rads_cpf"] = third_eye[:, 0]
+    gaze["pitch_rads_cpf"] = third_eye[:, 1]
+    projections, directions = get_projections_et(latest_et_df=gaze, cam_calib=cam_calib, cpf_to_rgb_T=cpf_to_rgb_T)
+    projections = np.array(projections)
+    directions = np.array(directions) / np.linalg.norm(directions, axis=-1, keepdims=True)
+    data = {
+        "tracking_timestamp_us": gaze["tracking_timestamp_us"],
+        "projected_point_2d_x": projections[:, 1],
+        "projected_point_2d_y": projections[:, 0],
+        "transformed_gaze_x": directions[:, 0],
+        "transformed_gaze_y": directions[:, 1],
+        "transformed_gaze_z": directions[:, 2],
+        "depth_m": gaze["depth_m"]
+    }
+    # Create a DataFrame from the dictionary
+    out = pd.DataFrame(data)
+    return out
+
+
+def get_calib_from_path(calib_path):
+    calib_data = torch.load(calib_path)
+    calib_dict, cpf_to_rgb_T = calib_data['cam_calib'], calib_data['cpf_to_rgb_T']
+    cam_calib = CameraCalibration(
+        calib_dict['label'],
+        calib_dict['model_name'],
+        calib_dict['projection_params'],
+        SE3.from_matrix(calib_dict['T_Device_Camera']),
+        calib_dict['image_width'],
+        calib_dict['image_height'],
+        calib_dict['maybe_valid_radius'],
+        calib_dict['max_solid_angle'],
+        calib_dict['serial_number'],
+        calib_dict['time_offset_sec_device_camera'],
+        calib_dict['maybe_readout_time_sec']
+    )
+    return cam_calib, cpf_to_rgb_T
 
 
 def project_gaze_vrs(gaze_path, vrs_path=None):

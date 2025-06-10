@@ -3,17 +3,20 @@ start_time: 0.0
 snippet_gap: 0.01667  # roughly 1/60 seconds
 mode: "folder"
 modalities:
-  - "gaze"
-  - "imu"
-  - "rgb"
-  - "gaze+rgb"
-  - "gaze+imu"
-  - "imu+rgb"
+#  - "gaze"
+#  - "imu"
+#  - "rgb"
+#  - "gaze+rgb"
+#  - "gaze+imu"
+#  - "imu+rgb"
   - "gaze+imu+rgb"
 output_save_path: "output/"
-root_dir: "/research/nfs_zhang_13664/IRB_DATA_COMPILED_v3"
+root_dir: "/research/nfs_zhang_13664/deidentified_IRB_DATA_MP4/mp4"
+file_type: "mp4"
+mps_folder: "/research/nfs_zhang_13664/deidentified_IRB_DATA_MP4/mps/"
 #input_filename: "Prangon_E1_reading_positive_text-only_paragraphs_print_booklet_2052.973460738_2128.973460738.vrs"
 model_name:
   - "v1_default"
 #  - "v0"
-num_workers: 64  # adjust based on available CPU cores
+num_workers: 1  # adjust based on available CPU cores
+device: "cuda"  # or "cpu" if no GPU is available
