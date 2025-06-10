@@ -62,7 +62,11 @@ conda activate ritw-osu
 ## Download
 
 ### Dataset
-*Dataset will be available soon.*
+The dataset is hosted at Huggingface Hub in this [page](https://huggingface.co/datasets/OSU-AIoT-MLSys-Lab/Reading-in-the-Wild-Columbus). To download please run:
+```commandline
+python -m ritw.download
+```
+This will save the dataset in `dataset` folder.
 
 ### Models
 Download the models from [here](https://github.com/facebookresearch/reading_in_the_wild) and put them inside the ```models/``` folder.
