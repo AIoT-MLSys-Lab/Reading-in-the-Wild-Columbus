@@ -1,0 +1,40 @@
+cff-version: 1.2.0
+message: "If you use this dataset or code, please cite the following paper:"
+title: "Reading Recognition in the Wild"
+authors:
+  - family-names: Yang
+    given-names: Charig
+  - family-names: Alam
+    given-names: Samiul
+  - family-names: Siam
+    given-names: Shakhrul Iman
+  - family-names: Proulx
+    given-names: Michael J.
+  - family-names: Mathias
+    given-names: Lambert
+  - family-names: Somasundaram
+    given-names: Kiran
+  - family-names: Pesqueira
+    given-names: Luis
+  - family-names: Fort
+    given-names: James
+  - family-names: Sheriffdeen
+    given-names: Sheroze
+  - family-names: Parkhi
+    given-names: Omkar
+  - family-names: Ren
+    given-names: Carl
+  - family-names: Zhang
+    given-names: Mi
+  - family-names: Chai
+    given-names: Yuning
+  - family-names: Newcombe
+    given-names: Richard
+  - family-names: Kim
+    given-names: Hyo Jin
+date-released: 2025-05-31
+version: "1.0.0"
+doi: 10.48550/arXiv.2505.24848
+url: https://arxiv.org/abs/2505.24848
+type: article
+repository-code: https://github.com/AIoT-MLSys-Lab/Reading-in-the-Wild-Columbus
