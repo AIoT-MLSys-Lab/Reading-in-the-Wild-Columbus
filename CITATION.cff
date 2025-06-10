@@ -1,35 +1,69 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
 cff-version: 1.2.0
-message: "If you use this software, please cite it as below."
+title: Reading Recognition in the Wild
+message: 'If you use this software, please cite it as below.'
+type: dataset
 authors:
-  - given-names: "Charig"
-    family-names: "Yang"
-  - given-names: "Samiul"
-    family-names: "Alam"
-  - given-names: "Shakhrul Iman"
-    family-names: "Siam"
-  - given-names: "Michael J."
-    family-names: "Proulx"
-  - given-names: "Lambert"
-    family-names: "Mathias"
-  - given-names: "Kiran"
-    family-names: "Somasundaram"
-  - given-names: "Luis"
-    family-names: "Pesqueira"
-  - given-names: "James"
-    family-names: "Fort"
-  - given-names: "Sheroze"
-    family-names: "Sheriffdeen"
-  - given-names: "Omkar"
-    family-names: "Parkhi"
-  - given-names: "Carl"
-    family-names: "Ren"
-  - given-names: "Mi"
-    family-names: "Zhang"
-  - given-names: "Yuning"
-    family-names: "Chai"
-  - given-names: "Richard"
-    family-names: "Newcombe"
-  - given-names: "Hyo Jin"
-    family-names: "Kim"
-title: "Reading Recognition in the Wild"
-url: "https://arxiv.org/abs/2505.24848"
+  - given-names: Charig
+    family-names: Yang
+  - given-names: Samiul
+    family-names: Alam
+    email: alam.140@osu.edu
+    affiliation: OSU
+    orcid: 'https://orcid.org/0000-0002-8458-4642'
+  - given-names: Shakhrul Iman
+    family-names: Siam
+  - given-names: Michael J.
+    family-names: Proulx
+  - given-names: Lambert
+    family-names: Mathias
+  - given-names: Kiran
+    family-names: Somasundaram
+  - given-names: Luis
+    family-names: Pesqueira
+  - given-names: James
+    family-names: Fort
+  - given-names: Sheroze
+    family-names: Sheriffdeen
+  - given-names: Omkar
+    family-names: Parkhi
+  - given-names: Carl
+    family-names: Ren
+  - given-names: Mi
+    family-names: Zhang
+  - given-names: Yuning
+    family-names: Chai
+  - given-names: Richard
+    family-names: Newcombe
+  - given-names: Hyo Jin
+    family-names: Kim
+identifiers:
+  - type: doi
+    value: 10.48550/arXiv.2505.24848
+repository-code: >-
+  https://github.com/AIoT-MLSys-Lab/Reading-in-the-Wild-Columbu
+url: 'https://www.projectaria.com/datasets/reading-in-the-wild/'
+repository-artifact: 'https://huggingface.co/datasets/OSU-AIoT-MLSys-Lab'
+abstract: >-
+  To enable egocentric contextual AI in always-on smart
+  glasses, it is crucial to be able to keep a record of the
+  user's interactions with the world, including during
+  reading. In this paper, we introduce a new task of reading
+  recognition to determine when the user is reading. We
+  first introduce the first-of-its-kind large-scale
+  multimodal Reading in the Wild dataset, containing 100
+  hours of reading and non-reading videos in diverse and
+  realistic scenarios. We then identify three modalities
+  (egocentric RGB, eye gaze, head pose) that can be used to
+  solve the task, and present a flexible transformer model
+  that performs the task using these modalities, either
+  individually or combined. We show that these modalities
+  are relevant and complementary to the task, and
+  investigate how to efficiently and effectively encode each
+  modality. Additionally, we show the usefulness of this
+  dataset towards classifying types of reading, extending
+  current reading understanding studies conducted in
+  constrained settings to larger scale, diversity and
+  realism.
