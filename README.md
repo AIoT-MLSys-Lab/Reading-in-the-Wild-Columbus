@@ -149,6 +149,14 @@ After setting up your environment and ensuring that the metadata and prediction 
 python -m ritw.evaluate --config-name config.yaml
 ```
 
+## License
+
+Reading in the Wild - Columbus Subset dataset and code is released by The Ohio State University under the Creative Commons
+Attribution-NonCommercial 4.0 International License
+([CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/legalcode)). Data
+and code may not be used for commercial purposes. For more information, please
+refer to the [LICENSE](./LICENSE) file included in this repository.
+
 ## Attribution
 
 
