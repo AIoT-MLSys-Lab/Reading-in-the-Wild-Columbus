@@ -1,7 +1,7 @@
-# Reading in the Wild Dataset - Columbus Subset
+# Reading in the Wild - Columbus Subset
 
 # Introduction
-”Reading in the Wild” dataset is the first-of-its-kind large-scale multimodal dataset collected using Meta's smart glasses under Project Aria. The dataset contains 100 hours of reading and non-reading egocentric videos in diverse and realistic scenarios. It also includes eye gaze and head pose data collected during reading and non-reading activities. The dataset can be used to develop models not only for identifying reading activities but also for classifying different types of reading actvities in real-world scenarios. 
+The Reading in the Wild dataset is the first-of-its-kind large-scale multimodal dataset collected using Meta's smart glasses under Project Aria. The dataset contains 100 hours of reading and non-reading egocentric videos in diverse and realistic scenarios. It also includes eye gaze and head pose data collected during reading and non-reading activities. The dataset can be used to develop models not only for identifying reading activities but also for classifying different types of reading actvities in real-world scenarios. 
 
 The dataset contains two subsets -- Seattle subset and Columbus subset. This repository is for the Columbus subset. The Seattle subset is maintained separately [here](https://github.com/facebookresearch/reading_in_the_wild).
 
