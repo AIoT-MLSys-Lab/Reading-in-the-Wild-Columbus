@@ -144,10 +144,10 @@ After setting up your environment and ensuring that the metadata and prediction 
 python -m ritw.evaluate --config-name config.yaml
 ```
 
-## Citation
+## Attribution
 
 
-**BibTeX:**
+When using the dataset and code, please attribute it as follows:
 ```
 @inproceedings{yang25reading,
       title={Reading Recognition in the Wild},
