@@ -149,18 +149,14 @@ python -m ritw.evaluate --config-name config.yaml
 
 **BibTeX:**
 ```
-@misc{yang2025readingrecognitionwild,
-      title={Reading Recognition in the Wild}, 
-      author={Charig Yang and Samiul Alam and Shakhrul Iman Siam and Michael J. Proulx and Lambert Mathias and Kiran Somasundaram and Luis Pesqueira and James Fort and Sheroze Sheriffdeen and Omkar Parkhi and Carl Ren and Mi Zhang and Yuning Chai and Richard Newcombe and Hyo Jin Kim},
+@inproceedings{yang25reading,
+      title={Reading Recognition in the Wild},
+      author={Charig Yang and Samiul Alam and Shakhrul Iman Siam and Michael Proulx and Lambert Mathias and Kiran Somasundaram and Luis Pesqueira and James Fort and Sheroze Sheriffdeen and Omkar Parkhi and Carl Ren and Mi Zhang and Yuning Chai and Richard Newcombe and Hyo Jin Kim},
+      booktitle={arXiv Preprint},
       year={2025},
-      eprint={2505.24848},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2505.24848}, 
+      url={https://arxiv.org/abs/2505.24848},
 }
 ```
-**APA:**
 
-Charig, Y., Alam, S., Siam, S. I., Proulx, M. J., Mathias, L., Somasundaram, K., Pesqueira, L., Fort, J., Sheriffdeen, S., Parkhi, O., Ren, C., Zhang, M., Chai, Y., Newcombe, R., & Kim, H. J. (2025). *Reading Recognition in the Wild.* arXiv preprint arXiv:2505.24848.
 
  
