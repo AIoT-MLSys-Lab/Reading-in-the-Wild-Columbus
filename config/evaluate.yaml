@@ -1,4 +1,4 @@
-metadata_file: "data/metadata.csv"
+metadata_file: "dataset/metadata.csv"
 result_dir: "output/v1_default"
 target_recall: 0.9
 metrics:
@@ -10,13 +10,13 @@ metrics:
   - "F1@R=0.9"
   - "AUC"
 modalities:
-  - "gaze"
-  - "rgb"
-  - "imu"
-  - "gaze+imu"
-  - "imu+rgb"
-  - "gaze+rgb"
-#  - "gaze+imu+rgb"
+#  - "gaze"
+#  - "rgb"
+#  - "imu"
+#  - "gaze+imu"
+#  - "imu+rgb"
+#  - "gaze+rgb"
+  - "gaze+imu+rgb"
 #filters:
 #  ContainsNonText:
 #    - "images"
