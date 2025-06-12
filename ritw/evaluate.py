@@ -106,7 +106,7 @@ def main(cfg: DictConfig):
 
     def find_if_model_processed(x):
         present = False
-        output_file_name = x['filename']
+        output_file_name = x['UID']
         for csv_file in csv_file_paths:
             if output_file_name in csv_file:
                 present = True
@@ -116,7 +116,7 @@ def main(cfg: DictConfig):
 
     def find_corresponding_csv_file(x):
         filename = None
-        output_data = x['filename']
+        output_data = x['UID']
         for csv_file in csv_file_paths:
             if output_data in csv_file and csv_file not in csv_set:
                 filename = csv_file
@@ -125,11 +125,11 @@ def main(cfg: DictConfig):
         return filename
 
     metadata_valid = metadata[metadata.apply(find_if_model_processed, axis=1)]
-    metadata_valid.loc[:, 'csv_file'] = metadata_valid.apply(find_corresponding_csv_file, axis=1)
+    metadata_valid.loc[:, 'UID'] = metadata_valid.apply(find_corresponding_csv_file, axis=1)
 
     # For each valid row, compute percentage predictions.
     def percentage_one_zero(row):
-        data = pd.read_csv(row['csv_file'], index_col='timestamp')
+        data = pd.read_csv(row['UID'], index_col='timestamp')
         percentage = data.sum() / len(data)
         updated_row = row.copy()
         for col in data.columns:
@@ -142,8 +142,7 @@ def main(cfg: DictConfig):
     all_data = []
     # Assume metadata has these columns: ActivityType, Medium, ShortTextOrPara, csv_file, ContainsNonText, Platform, ExtraTags, filename.
     roc_data = metadata_valid[
-        ['ActivityType', 'Medium', 'ShortTextOrPara', 'csv_file', 'ContainsNonText', 'Platform', 'ExtraTags',
-         'filename']]
+        ['ActivityType', 'Medium', 'ShortTextOrPara', 'UID', 'ContainsNonText', 'Platform']]
 
     # Define helper: convert ActivityType to binary label.
     def activity_to_binary(x):
@@ -155,7 +154,7 @@ def main(cfg: DictConfig):
 
     for _, row in tqdm(roc_data.iterrows(), total=len(roc_data)):
         cat = row['binary_act']
-        fname = row['csv_file']
+        fname = row['UID']
         medium = row['Medium']
         content = row['ShortTextOrPara']
         df = pd.read_csv(fname, index_col=None)
