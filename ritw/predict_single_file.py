@@ -10,7 +10,7 @@ from omegaconf import DictConfig, OmegaConf
 from torch.utils.data import DataLoader
 
 from ritw.data_handler import RITWDataHandlerMP4
-from ritw.data_handler import RITWDataHandler
+from ritw.data_handler import RITWDataHandlerVRS
 
 # Import your own modules and constants
 
@@ -51,7 +51,7 @@ def inference(cfg: DictConfig):
     if 'file_type' in cfg and cfg.file_type == 'mp4':
         dataset = RITWDataHandlerMP4(cfg, str(input_path))
     else:
-        dataset = RITWDataHandler(cfg, str(input_path))
+        dataset = RITWDataHandlerVRS(cfg, str(input_path))
     data_loader = DataLoader(dataset, batch_size=1, shuffle=False)
 
     # Inference loop.

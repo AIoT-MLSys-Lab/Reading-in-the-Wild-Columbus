@@ -20,7 +20,7 @@ from ritw.utils import project_gaze_vrs, create_sampled_array, project_gaze_mp4,
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 
-class RITWDataHandler(Dataset):
+class RITWDataHandlerVRS(Dataset):
     def __init__(self, cfg: DictConfig, vrs_file: str):
         """
         Dataset that handles the loading and processing of gaze, IMU, and RGB data from a VRS file.
