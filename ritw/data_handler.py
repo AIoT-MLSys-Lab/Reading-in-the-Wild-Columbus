@@ -156,56 +156,6 @@ class RITWDataHandler(Dataset):
         return snippet, timestamp
 
 
-import cv2
-import numpy as np
-import matplotlib.pyplot as plt
-
-
-def plot_gaze_and_crop(image, gaze_points, crop_center, crop_size, save_path=None):
-    """
-    Plots gaze points as connected colored circles and the crop as a red rectangle.
-
-    Args:
-        image (np.ndarray): The original image (H, W, 3).
-        gaze_points (np.ndarray): Array of shape (N, 2) with (x, y) gaze points.
-        crop_center (tuple): (x_center, y_center) for the crop.
-        crop_size (int): Size of the crop (assumed square).
-        save_path (str, optional): If provided, saves the plot to this path.
-    """
-    img_vis = image.copy()
-    N = len(gaze_points)
-
-    # Draw gaze points as colored circles and connect them
-    for i, (x, y) in enumerate(gaze_points):
-        # FIX 1: Generate RGB color and then convert to BGR for OpenCV
-        rgb_color = np.array(plt.cm.jet(i / max(N - 1, 1))[:3]) * 255
-        bgr_color = (rgb_color[2], rgb_color[1], rgb_color[0])  # Swap R and B channels
-
-        cv2.circle(img_vis, (int(x), int(y)), 20, bgr_color, 8)
-
-        if i > 0:
-            prev = tuple(map(int, gaze_points[i - 1]))
-            curr = tuple(map(int, (x, y)))
-            cv2.line(img_vis, prev, curr, bgr_color, 2)
-
-    # Draw crop rectangle in red
-    x_c, y_c = crop_center
-    half = crop_size // 2
-    top_left = (int(x_c - half), int(y_c - half))
-    bottom_right = (int(x_c + half), int(y_c + half))
-
-    # FIX 2: Use the correct BGR tuple for RED
-    cv2.rectangle(img_vis, top_left, bottom_right, (0, 0, 255), 2)  # (B, G, R) for red
-
-    # Show or save
-    plt.figure(figsize=(8, 8))
-    plt.imshow(cv2.cvtColor(img_vis, cv2.COLOR_BGR2RGB))
-    plt.axis('off')
-    if save_path:
-        plt.savefig(save_path, bbox_inches='tight')
-    plt.show()
-
-
 class RITWDataHandlerMP4(Dataset):
     def __init__(self, cfg: DictConfig, mp4_file: str):
         """
@@ -251,7 +201,7 @@ class RITWDataHandlerMP4(Dataset):
         # Load gaze, as before
         calib_path = self.mp4_file.parent.parent / 'calib' / f"{self.vid_uid}.pkl"
         calib, cpf2rgbT = get_calib_from_path(calib_path)
-        calib = rotate_camera_calib_cw90deg(calib)
+        # calib = rotate_camera_calib_cw90deg(calib)
         self.gaze = project_gaze_mp4(str(gaze_path), calib, cpf2rgbT)
 
         # Load IMU (odometry) if requested
@@ -344,15 +294,7 @@ class RITWDataHandlerMP4(Dataset):
             # Timestamp at which we want the image, in ns
             time_ns = self.gaze_timestamps[gaze_idx] * 1000  # microseconds -> nanoseconds
             frame = self.get_frame_by_time_ns(time_ns)
-            # For cropping: since image is now upright, x = col, y = row
-            x_center = np.clip(int(self.gaze_xy[gaze_idx, 0]), self.crop_size // 2,
-                               self.rgb_width - self.crop_size // 2)
-            y_center = np.clip(int(self.gaze_xy[gaze_idx, 1]), self.crop_size // 2,
-                               self.rgb_height - self.crop_size // 2)
-            crop = frame[y_center - self.crop_size // 2: y_center + self.crop_size // 2,
-                         x_center - self.crop_size // 2: x_center + self.crop_size // 2]
             im = np.rot90(frame, k=-3)
-            # im = im
             x_center = 1408 - np.clip(int(self.gaze_xy[gaze_idx, 0]), self.crop_size // 2, 1408 - self.crop_size // 2)
             y_center = np.clip(int(self.gaze_xy[gaze_idx, 1]), self.crop_size // 2, 1408 - self.crop_size // 2)
             gaze_crop = im[y_center - self.crop_size // 2:y_center + self.crop_size // 2, x_center - self.crop_size // 2:x_center + self.crop_size // 2]

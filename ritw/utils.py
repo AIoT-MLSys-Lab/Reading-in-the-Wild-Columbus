@@ -187,7 +187,7 @@ def project_gaze_mp4(gaze_path, cam_calib, cpf_to_rgb_T):
 
 
 def get_calib_from_path(calib_path):
-    calib_data = torch.load(calib_path)
+    calib_data = torch.load(calib_path, weights_only=False)
     calib_dict, cpf_to_rgb_T = calib_data['cam_calib'], calib_data['cpf_to_rgb_T']
     cam_calib = CameraCalibration(
         calib_dict['label'],

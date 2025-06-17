@@ -51,7 +51,7 @@ def inference(cfg: DictConfig):
     if 'file_type' in cfg and cfg.file_type == 'mp4':
         dataset = RITWDataHandlerMP4(cfg, str(input_path))
     else:
-        dataset = RITWDataHandlerMP4(cfg, str(input_path))
+        dataset = RITWDataHandler(cfg, str(input_path))
     data_loader = DataLoader(dataset, batch_size=1, shuffle=False)
 
     # Inference loop.
@@ -82,7 +82,7 @@ def inference(cfg: DictConfig):
     return timestamps, pred.tolist()
 
 
-@hydra.main(config_path="../config", config_name="config")
+@hydra.main(config_path="../config", config_name="config", version_base="1.2")
 def main(cfg: DictConfig):
     # Display the configuration for verification.
     logging.info("Configuration:\n%s", OmegaConf.to_yaml(cfg))
