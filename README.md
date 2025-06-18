@@ -28,7 +28,7 @@ As summarized in the following chart, the Columbus subset contains data collecte
 </p>
 
 ## Comparison to Existing Datasets
-Compared to existing gocentric video datasets as well as reading datasets, our dataset is the first reading dataset that contains high-frequency eye-gaze, diverse and realistic egocentric videos, and hard negative (HN) samples. 
+Compared to existing egocentric video datasets as well as reading datasets, our dataset is the first reading dataset that contains high-frequency eye-gaze, diverse and realistic egocentric videos, and hard negative (HN) samples. 
 <p align="center">
 <img src="media/table2.png" alt="comparison" width="60%">
 </p>
@@ -69,9 +69,9 @@ conda activate ritw-osu
 ### Dataset
 The dataset is hosted at HuggingFace Hub in this [page](https://huggingface.co/datasets/OSU-AIoT-MLSys-Lab/Reading-in-the-Wild-Columbus). To download please run:
 ```commandline
-python -m ritw.download
+python -m ritw.download --config-name config.yaml
 ```
-This will save the dataset in `dataset` folder.
+An example config file is provided in `/config/download.yaml`. The dataset will be downloaded to the folder indicated by `local_dir`. The config file allows you to specify filters to download a subset of the dataset.
 
 ### Models
 Download the models from [here](https://github.com/facebookresearch/reading_in_the_wild) and put them inside the ```models/``` folder.
