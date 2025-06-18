@@ -1,0 +1,8 @@
+# config.yaml
+dataset_repo: "OSU-AIoT-MLSys-Lab/Reading-in-the-Wild-Columbus"
+local_dir: "../dataset_v2"
+filter:
+  Platform:
+    - "laptop"
+  ActivityType:
+    - "reading_positive"
